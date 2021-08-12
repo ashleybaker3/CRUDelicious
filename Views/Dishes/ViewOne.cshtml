@@ -1,0 +1,17 @@
+@model Dish
+
+<header>
+    <partial name="_Navbar.cshtml" />
+</header>
+
+<div class="mx-auto container d-flex flex-column justify-content-center">
+    <h1 class="mx-auto">@Model.Name</h1>
+    <h4 class="mx-auto">@Model.Chef</h4>
+</div>
+    <h5 class="mx-auto mb-3">@Model.Description</h5>
+    <h5 class="mx-auto mb-3">Calories:  @Model.Calories</h5>
+    <h5 class="mx-auto mb-3">Tastiness:  @Model.Tastiness</h5>
+<div class="row d-flex justify-content-around">
+    <a asp-controller="Dishes" asp-action="Delete" asp-route-dishId="@Model.DishID" class="btn col-auto border border-dark text-dark text-decoration-none align-self-center bg-danger">Delete</a>
+    <a asp-controller="Dishes" asp-action="Edit" asp-route-dishId="@Model.DishID" class="btn col-auto border border-dark text-dark text-decoration-none align-self-center">Edit</a>
+</div>

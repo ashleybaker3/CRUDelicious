@@ -1,0 +1,63 @@
+@model Dish
+
+
+<div class="container my-4">
+    <div class="d-flex justify-content-center">
+            <h2 class="row">Edit @Model.Name</h2>
+    </div>
+    <header>
+        <partial name="_Navbar.cshtml" />
+    </header>
+    <form asp-controller="Dishes" asp-action="Update" asp-route-dishId="@Model.DishID" method="POST" class="row">
+        <div class="col-3">
+            <div class="row mb-4">
+                <span asp-validation-for="Chef" class="text-danger"></span>
+                <label asp-for="Chef" class="row form-label fs-5">Chef's Name</label>
+                <div class="row">
+                    <input asp-for="Chef" class="form-control">  
+                </div>
+            </div>
+            <div class="row mb-4">
+                <span asp-validation-for="Name" class="text-danger"></span>
+                <label asp-for="Name" class="row form-label fs-5">Name of Dish</label>
+                <div class="row">
+                    <input asp-for="Name" class="form-control">  
+                </div>
+            </div>
+            <div class="row mb-4">
+                <span asp-validation-for="Calories" class="text-danger"></span>
+                <label asp-for="Calories" class="row form-label fs-5"># of Calories</label>
+                <div class="row">
+                    <input asp-for="Calories" class="form-control w-25">  
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+                <div class="row mb-4">
+                <span asp-validation-for="Tastiness" class="text-danger"></span>
+                <label asp-for="Tastiness" class="row form-label fs-5">Tastiness</label>
+                <div class="row">
+                    <select asp-for="Tastiness" class="form-select w-25">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>  
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="row mb-4">
+                <span asp-validation-for="Description" class="text-danger"></span>
+                <label asp-for="Description" class="row form-label fs-5">Description</label>
+                <div class="row">
+                    <textarea asp-for="Description" class="form-control col-1"></textarea> 
+                </div>
+            </div>
+            <div class="row mb-4">
+                <button class="btn border border-dark col-auto">Update Dish</button>
+            </div>
+        </div>
+    </form>
+</div>
